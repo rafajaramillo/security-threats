@@ -28,7 +28,7 @@ app.get('/login', (req, res) => {
     res.status(500).send({error: 'username and password are required'});
     return;
   }
-  const sql = `SELECT * FROM users WHERE username='${myUser}' AND password='${myPassword}'`;
+  const sql = `SELECT * FROM users WHERE username=${myUser} AND password='${myPassword}'`;
   console.log(sql);
   db.get(sql, (err, row) => {
     if (err) {
